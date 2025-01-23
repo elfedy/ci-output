@@ -6,14 +6,15 @@ on:
       - main
 
 jobs:
-  name: test
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
-    - uses: dtolnay/rust-toolchain@stable
-      with:
-        target: x86_64-unknown-linux-gnu
-    - uses: taiki-e/install-action@nextest
-    - name: test
-      run: cargo nextest run
+  test: 
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          target: x86_64-unknown-linux-gnu
+      - uses: taiki-e/install-action@nextest
+      - name: test
+        run: cargo nextest run
 
